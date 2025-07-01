@@ -15,9 +15,10 @@ const app = express();
 
 // Configuração do CORS antes de qualquer outra coisa
 app.use(cors({
-  origin: process.env.CORS_ORIGIN, // Permitir apenas o frontend no localhost
+  origin: '*', // Permitir apenas o frontend no localhost
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,  // Permitir cookies de terceiros (como o JWT)
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json()); // Para fazer o parsing de JSON no corpo da requisição
